@@ -27,7 +27,6 @@ class CookieTest {
 	@AfterAll
 	static void tearDownAfterClass() throws Exception {
 		factory.close();
-
 	}
 
 	@BeforeEach
