@@ -26,6 +26,6 @@ public class CookieController {
 	public String showCookie(Model model, @RequestParam("cookieId") Integer cookieId) {
 		Cookie cookie = cookieDao.readCookieById(cookieId);
 		model.addAttribute("cookie", cookie);
-		return "film/show";
+		return "cookie/details";
 	}
 }
