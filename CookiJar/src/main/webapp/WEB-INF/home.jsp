@@ -11,44 +11,128 @@
 	rel="stylesheet"
 	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 	crossorigin="anonymous">
-<link href="css/style.css" rel="stylesheet">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="icon" type="image/png" href="images/cooki-jar.ico" />
+<style>
+html body {
+	background-image: url('images/cooki-jar-bg.png');
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+img {
+	height: 80px;
+	width: 80px;
+	position: relative;
+}
+
+.card {
+	background-color: transparent;
+	border: none;
+}
+
+.table {
+	margin: auto;
+	width: 100%;
+}
+</style>
 </head>
 <body>
-	<div
-		class="sticky-top container bg-light border border-dark rounded-4 ">
-		<br>
-		<h1>Welcome to Cooki Jar!</h1>
-		<form action="getCookie.do" method="GET">
-			Cookie ID: <input type="text" name="cookieId" /> <input
-				class="btn btn-success" type="submit" value="Show Cookie" />
-		</form>
-		<br> <br>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 mx-auto">
+				<div class="card mt-4">
+					<div class="card-body text-center bg-light border rounded-5">
+						<h1>
+							Welcome to<br> <img src="images/cooki-jar-logo.png"
+								alt="Cooki Jar" />
+						</h1>
+						<form action="getCookie.do" method="GET">
+							Search Cookies By ID: <br> <input type="text"
+								name="cookieId" required="required" style="text-align: center"
+								placeholder="5" /> <br> <br>
+							<button type="submit" class="btn btn-warning">
+								Show Cookie <i class="bi bi-cookie"></i>
+							</button>
+						</form>
+						<hr>
+						<form action="keywordCookies" method="POST">
+							<label for="name" class="form-label">Search Cookies By
+								Keyword: </label> <br> <input type="text" name="name"
+								required="required" maxlength="255" style="text-align: center"
+								placeholder="Chocolate" /> <br> <br>
+							<button type="submit" class="btn btn-danger">
+								Search Cookies <i class="bi bi-cookie"></i>
+							</button>
+						</form>
+						<hr>
+						<form action="newCookie.do" method="GET">
+							<button type="submit" class="btn btn-primary">
+								Add New Cookie <i class="bi bi-cookie"></i>
+							</button>
+						</form>
+						<hr>
+						<form action="readCookies.do" method="GET">
+							<button type="submit" class="btn btn-success">
+								See All Cookies <i class="bi bi-cookie"></i>
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	<div class="container">
-		<table class="table table-striped table-hover">
-			<thead class="bg-light sticky-top top-20">
-				<tr>
-					<th>ID</th>
-					<th>Type</th>
-					<th>Frosting</th>
-					<th>Topping</th>
-					<th>Calories</th>
-					<th>Sugar (In Grams)</th>
-					<th>Price</th>
-				</tr>
-			</thead>
-			<tbody>
-				<td>${cookie.id}</td>
-				<td><a
-					href="<c:url value='getCookie.do'><c:param name='cookieId' value='${cookie.id}'/></c:url>">
-						${cookie.type}</a></td>
-				<td>${cookie.frosting}</td>
-				<td>${cookie.topping}</td>
-				<td>${cookie.calories}</td>
-				<td>${cookie.sugar}</td>
-				<td>${cookie.price}</td>
-			</tbody>
-		</table>
+		<div class="row">
+			<div class="col-md-7 mx-auto">
+				<div class="card mt-4">
+					<div class="card-body">
+						<table class="table table-hover border rounded-5 overflow-hidden">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>Type</th>
+									<th>Frosting</th>
+									<th>Topping</th>
+									<th>Calories</th>
+									<th>Sugar</th>
+									<th>Price</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="c" items="${cookieList}">
+									<c:if test="${empty type}">
+										<tr>
+									</c:if>
+									<c:if test="${! empty type}">
+										<c:if test="${c.type == type}">
+											<tr class="found">
+										</c:if>
+										<c:if test="${c.type != type}">
+											<tr>
+										</c:if>
+									</c:if>
+									<tr>
+										<td>${c.id}</td>
+										<td><a
+											href="<c:url value='getCookie.do'><c:param name='cookieId' value='${c.id}'/></c:url>">
+												${c.type}</a></td>
+										<td>${c.frosting}</td>
+										<td>${c.topping}</td>
+										<td>${c.calories}</td>
+										<td>${c.sugar}g</td>
+										<td>$${c.price}</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

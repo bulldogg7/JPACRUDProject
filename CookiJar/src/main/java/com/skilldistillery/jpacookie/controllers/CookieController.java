@@ -25,7 +25,7 @@ public class CookieController {
 	@RequestMapping(path = "getCookie.do", method = RequestMethod.GET)
 	public String showCookie(Model model, @RequestParam("cookieId") Integer cookieId) {
 		Cookie cookie = cookieDao.readCookieById(cookieId);
-		model.addAttribute("cookie", cookie);
+		model.addAttribute("c", cookie);
 		return "cookie/details";
 	}
 }
