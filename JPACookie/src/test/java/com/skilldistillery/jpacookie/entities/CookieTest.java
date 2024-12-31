@@ -44,6 +44,6 @@ class CookieTest {
 	@Test
 	void test_Cookie_basic_mappings() {
 		assertNotNull(cookie);
-		assertEquals("Chocolate Chip", cookie.getType());
+		assertEquals("Chocolate Chip", cookie.getName());
 	}
 }

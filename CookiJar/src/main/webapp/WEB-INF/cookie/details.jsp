@@ -41,7 +41,10 @@ body {
 								<h1>Cookie - ${c.id}</h1>
 								<div>
 									<p>
-										<strong>Type:</strong> ${c.type}
+										<strong>Name:</strong> ${c.name}
+									</p>
+									<p>
+										<strong>Contents:</strong> ${c.contents}
 									</p>
 									<p>
 										<strong>Frosting:</strong> ${c.frosting}
@@ -50,10 +53,10 @@ body {
 										<strong>Topping:</strong> ${c.topping}
 									</p>
 									<p>
-										<strong>Calories:</strong> ${c.calories}
+										<strong>Calories:</strong> ${c.calories}/qtr
 									</p>
 									<p>
-										<strong>Sugar:</strong> ${c.sugar}g
+										<strong>Sugar:</strong> ${c.sugar}g/qtr
 									</p>
 									<p>
 										<strong>Price:</strong> $${c.price}

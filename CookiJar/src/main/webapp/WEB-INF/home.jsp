@@ -34,6 +34,11 @@ img {
 	border: none;
 }
 
+.card-body {
+	border-color: #99ccff;
+	border-width: 4px;
+}
+
 .table {
 	margin: auto;
 	width: 100%;
@@ -94,7 +99,8 @@ img {
 							<thead>
 								<tr>
 									<th>ID</th>
-									<th>Type</th>
+									<th>Name</th>
+									<th>Contents</th>
 									<th>Frosting</th>
 									<th>Topping</th>
 									<th>Calories</th>
@@ -104,14 +110,14 @@ img {
 							</thead>
 							<tbody>
 								<c:forEach var="c" items="${cookieList}">
-									<c:if test="${empty type}">
+									<c:if test="${empty name}">
 										<tr>
 									</c:if>
-									<c:if test="${! empty type}">
-										<c:if test="${c.type == type}">
+									<c:if test="${! empty name}">
+										<c:if test="${c.name == name}">
 											<tr class="found">
 										</c:if>
-										<c:if test="${c.type != type}">
+										<c:if test="${c.name != name}">
 											<tr>
 										</c:if>
 									</c:if>
@@ -119,7 +125,8 @@ img {
 										<td>${c.id}</td>
 										<td><a
 											href="<c:url value='getCookie.do'><c:param name='cookieId' value='${c.id}'/></c:url>">
-												${c.type}</a></td>
+												${c.name}</a></td>
+										<td>${c.contents}</td>
 										<td>${c.frosting}</td>
 										<td>${c.topping}</td>
 										<td>${c.calories}</td>

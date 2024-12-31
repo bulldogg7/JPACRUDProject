@@ -16,10 +16,13 @@
 <body>
 	<h1>Add Cookie</h1>
 	<form action="newCookie.do" method="POST">
-		<h3>Type</h3>
-		<label for="title">Enter the Cookie Type:</label> <input type="text"
+		<h3>Name</h3>
+		<label for="title">Enter the Cookie Name:</label> <input type="text"
 			id="title" name="title" required><br> <br>
-		<h3>Frosting</h3>
+		<h3>Contents</h3>
+		<label for="description">Enter the Cookie Contents:</label> <input
+			type="text" id="description" name="description" size="90"><br>
+		<br><h3>Frosting</h3>
 		<label for="description">Enter the Cookie Frosting:</label> <input
 			type="text" id="description" name="description" size="90"><br>
 		<br>
@@ -27,18 +30,18 @@
 		<label for="description">Enter the Cookie Topping:</label> <input
 			type="text" id="description" name="description" size="90"><br>
 		<br>
-		<h3>Calories</h3>
+		<h3>Calories (1/4 of a Cookie)</h3>
 		<label for="length">Select the Cookie Calories:</label> <input
 			type="number" id="length" name="length" min="200" max="1200"
 			value="90" step="10"><br> <br>
-		<h3>Sugar (In Grams)</h3>
-		<label for="length">Select the Cookie Sugar (In Grams):</label> <input
+		<h3>Sugar (In Grams for 1/4 of a Cookie)</h3>
+		<label for="length">Select the Cookie Sugar (In Grams for 1/4 of a Cookie):</label> <input
 			type="number" id="length" name="length" min="200" max="1200"
 			value="90" step="10"><br> <br>
 		<h3>Price</h3>
 		<label for="rentalRate">How Much is the Cookie?</label> <input
-			type="number" id="rentalRate" name="rentalRate" value="8.99"
-			min="3.99" max="19.99" step="1.0"><br> <br> <input
+			type="number" id="rentalRate" name="rentalRate" value="4.99"
+			min="3.99" max="6.99" step=".10"><br> <br> <input
 			type="submit" class="submit-button" value="Add Cookie">
 	</form>
 	<br>

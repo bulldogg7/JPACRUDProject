@@ -13,15 +13,18 @@ public class Cookie {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	private String type;
+	private String name;
+	
+	private String contents;
 
 	private String frosting;
 
 	private String topping;
 
+	@Column(name = "calories_quarter")
 	private Integer calories;
 
-	@Column(name = "sugar_grams")
+	@Column(name = "sugar_grams_quarter")
 	private Integer sugar;
 
 	private Double price;
@@ -36,11 +39,17 @@ public class Cookie {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getType() {
-		return type;
+	public String getName() {
+		return name;
 	}
-	public void setType(String type) {
-		this.type = type;
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getContents() {
+		return contents;
+	}
+	public void setContents(String contents) {
+		this.contents = contents;
 	}
 	public String getFrosting() {
 		return frosting;
@@ -75,7 +84,7 @@ public class Cookie {
 
 	@Override
 	public String toString() {
-		return "Cookie [id=" + id + ", type=" + type + ", frosting=" + frosting + ", topping=" + topping + ", calories="
-				+ calories + ", sugar=" + sugar + ", price=" + price + "]";
+		return "Cookie [id=" + id + ", name=" + name + ", contents=" + contents + ", frosting=" + frosting
+				+ ", topping=" + topping + ", calories=" + calories + ", sugar=" + sugar + ", price=" + price + "]";
 	}
 }
