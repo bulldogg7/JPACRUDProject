@@ -173,7 +173,7 @@ footer {
 													onsubmit="return window.confirm('Confirm Delete?');">
 													<div class="form-group">
 														<input type="hidden" class="form-control" id="id"
-															name="id" value="<c:out value='${c.id}' />">
+															name="cookieId" value="<c:out value='${c.id}' />">
 													</div>
 													<button type="submit" class="btn btn-danger">Delete</button>
 												</form>

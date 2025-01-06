@@ -44,12 +44,6 @@ public class CookieController {
 		return "cookie/createCookie";
 	}
 
-	// GET EDIT COOKIE - DONE!
-	@GetMapping("editCookie.do")
-	public String editCookie() {
-		return "cookie/updateCookie";
-	}
-
 	// CREATE - DONE!
 	@PostMapping("createCookie.do")
 	public String createCookie(@RequestParam("name") String name, @RequestParam("base") String base,
@@ -85,20 +79,28 @@ public class CookieController {
 	}
 
 	// READ - TO DO! ***
-	@GetMapping("readKeywordCookies.do")
-	public String readKeywordCookies(@RequestParam(name = "name", required = true, defaultValue = "") String name,
-			Model model) {
-		List<Cookie> cookies = new ArrayList<>();
-		cookies = cookieDao.readCookiesByKeyword(name);
-		model.addAttribute("cookies", cookies);
-		model.addAttribute("keyword", name);
-		return "cookie/readKeywordCookies";
+//	@GetMapping("readKeywordCookies.do")
+//	public String readKeywordCookies(@RequestParam(name = "name", required = true, defaultValue = "") String name,
+//			Model model) {
+//		List<Cookie> cookies = new ArrayList<>();
+//		cookies = cookieDao.readCookiesByKeyword(name);
+//		model.addAttribute("cookies", cookies);
+//		model.addAttribute("keyword", name);
+//		return "cookie/readKeywordCookies";
+//	}
+
+	// GET EDIT COOKIE - DONE!
+	@GetMapping("editCookie.do")
+	public String editCookie(Model model, @RequestParam("cookieId") int cookieId) {
+		Cookie cookie = cookieDao.readCookieById(cookieId);
+		model.addAttribute("c", cookie);
+		return "cookie/updateCookie";
 	}
 
-	// UPDATE - DONE!
+	// UPDATE - FINISH ***
 	@PostMapping("updateCookie.do")
-	public String updateCookie(Model model, @RequestParam("cookieId") int cookieId) {
-		Cookie cookie = cookieDao.readCookieById(cookieId);
+	public String updateCookie(Model model, @RequestParam("cookieId") int cookieId, @ModelAttribute Cookie updateCookie) {
+		Cookie cookie = cookieDao.updateCookie(updateCookie, cookieId);
 		model.addAttribute("c", cookie);
 		return "cookie/updateCookie";
 	}
@@ -107,7 +109,7 @@ public class CookieController {
 	@PostMapping("deleteCookie.do")
 	public String deleteCookie(Model model, @RequestParam("cookieId") int cookieId) {
 		boolean deletedCookie = cookieDao.deleteCookieById(cookieId);
-		return "redirect:/confirmDelete.do";
+		return "redirect:/confirmDelete.do?cookieId=" + cookieId;
 	}
 
 	// DELETE CONFIRM - DONE!

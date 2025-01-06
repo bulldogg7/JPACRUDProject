@@ -63,56 +63,63 @@ footer {
 	border-radius: 5px;
 	font-family: sans-serif;
 	font-size: 1rem;
+	width: 100%;
 }
 </style>
 </head>
 <body>
 
-	<div class="container">
+	<div class="container sticky-top">
 		<div class="row">
 			<div class="col-md-12 mx-auto">
 				<div class="card mt-4">
 					<div class="card-body">
+						<h1 style="text-align: center">Selected Cookie - ${c.id}</h1>
 						<table class="table table-hover">
-							<h1>Selected Cookie</h1>
-							<tr>
-								<th>ID</th>
-								<th>Name</th>
-								<th>Base</th>
-								<th>Contents</th>
-								<th>Frosting</th>
-								<th>Topping</th>
-								<th>Calories*</th>
-								<th>Sugar*</th>
-								<th>Price</th>
-								<th>Delete</th>
-							</tr>
-							<tr>
-								<td>${c.id}</td>
-								<td>${c.name}</td>
-								<td>${c.base}</td>
-								<td>${c.contents}</td>
-								<td>${c.frosting}</td>
-								<td>${c.topping}</td>
-								<td>${c.calories}</td>
-								<td>${c.sugar}</td>
-								<td>${c.price}</td>
-								<td><c:if test="${c.id > 25}">
-										<form action="deleteCookie.do" method="POST"
-											onsubmit="return window.confirm('Confirm Delete?');">
-											<div class="form-group">
-												<input type="hidden" class="form-control" id="id" name="id"
-													value="<c:out value='${c.id}' />">
-											</div>
-											<button type="submit" class="btn btn-danger">Delete</button>
-										</form>
-									</c:if> <c:if test="${c.id <= 25}">
-										<button class="unable">
-											<i class="bi bi-exclamation-octagon"></i>
-										</button>
-									</c:if></td>
-							</tr>
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>Name</th>
+									<th>Base</th>
+									<th>Contents</th>
+									<th>Frosting</th>
+									<th>Topping</th>
+									<th>Calories*</th>
+									<th>Sugar*</th>
+									<th>Price</th>
+									<th>Delete</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>${c.id}</td>
+									<td>${c.name}</td>
+									<td>${c.base}</td>
+									<td>${c.contents}</td>
+									<td>${c.frosting}</td>
+									<td>${c.topping}</td>
+									<td>${c.calories}</td>
+									<td>${c.sugar}g</td>
+									<td>$${c.price}</td>
+									<td><c:if test="${c.id > 25}">
+											<form action="deleteCookie.do" method="POST"
+												onsubmit="return window.confirm('Confirm Delete?');">
+												<div class="form-group">
+													<input type="hidden" class="form-control" id="id"
+														name="cookieId" value="<c:out value='${c.id}' />">
+												</div>
+												<button type="submit" class="btn btn-danger">Delete</button>
+											</form>
+										</c:if> <c:if test="${c.id <= 25}">
+											<button class="unable">
+												<i class="bi bi-exclamation-octagon"></i>
+											</button>
+										</c:if></td>
+								</tr>
+							</tbody>
 						</table>
+						<br>
+						<p style="text-align: right">*For 1/4 Cookie</p>
 					</div>
 				</div>
 			</div>
@@ -123,14 +130,15 @@ footer {
 			<div class="col-md-6 mx-auto">
 				<div class="card mt-4">
 					<div class="card-body text-center bg-light">
-						<img src="images/cooki-jar-logo.png" alt="Cooki Jar" />
-						<h1>Edit Cookie - ${c.id}</h1>
 						<button class="btn btn-primary" type="submit"
 							onclick="window.location.href='home.do'">
 							Return To Home <i class="bi bi-cookie"></i>
 						</button>
 						<hr>
-						<form action="updateCookie.do" method="POST">
+						<img src="images/cooki-jar-logo.png" alt="Cooki Jar" />
+						<h1>Edit Cookie</h1>
+						<hr>
+						<form action="updateCookie.do?id=${c.id}" method="POST">
 							<h3>Cookie Name</h3>
 							<input type="text" name="name" value="${c.name}"
 								style="text-align: center" /> <br> <br>
@@ -166,7 +174,7 @@ footer {
 								min="2.99" max="6.99" step=".10" style="text-align: center">
 							<br> <br>
 							<button type="submit" class="btn btn-success">
-								Submit Edit <i class="bi bi-cookie"></i>
+								Submit Changes <i class="bi bi-cookie"></i>
 							</button>
 						</form>
 					</div>

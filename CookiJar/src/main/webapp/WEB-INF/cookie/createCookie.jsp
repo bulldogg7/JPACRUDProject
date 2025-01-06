@@ -72,12 +72,13 @@ footer {
 			<div class="col-md-6 mx-auto">
 				<div class="card mt-4">
 					<div class="card-body text-center bg-light">
-							<img src="images/cooki-jar-logo.png" alt="Cooki Jar" />
-							<h1>Add Cookie</h1>
 						<button class="btn btn-primary" type="submit"
 							onclick="window.location.href='home.do'">
 							Return To Home <i class="bi bi-cookie"></i>
 						</button>
+						<hr>
+						<img src="images/cooki-jar-logo.png" alt="Cooki Jar" />
+						<h1>Add Cookie</h1>
 						<hr>
 						<form action="createCookie.do" method="POST">
 							<h3>Name</h3>
@@ -119,7 +120,7 @@ footer {
 								max="6.99" step=".10" required style="text-align: center"><br>
 							<br>
 							<button type="submit" class="btn btn-success">
-								Submit Cookie <i class="bi bi-cookie"></i>
+								Bake This Cookie! <i class="bi bi-cookie"></i>
 							</button>
 						</form>
 						<br>

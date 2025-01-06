@@ -1,13 +1,9 @@
 package com.skilldistillery.jpacookie.data;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.mysql.cj.jdbc.Blob;
 import com.skilldistillery.jpacookie.entities.Cookie;
 
 import jakarta.persistence.EntityManager;
@@ -54,7 +50,18 @@ public class CookieDAOImpl implements CookieDAO {
 	@Override
 	public Cookie updateCookie(Cookie cookie, int cookieId) {
 		Cookie foundCookie = manager.find(Cookie.class, cookieId);
-
+		System.out.println(cookieId);
+		System.out.println(cookie);
+		if (foundCookie != null) {
+			foundCookie.setName(cookie.getName());
+			foundCookie.setBase(cookie.getBase());
+			foundCookie.setContents(cookie.getContents());
+			foundCookie.setFrosting(cookie.getFrosting());
+			foundCookie.setTopping(cookie.getTopping());
+			foundCookie.setCalories(cookie.getCalories());
+			foundCookie.setSugar(cookie.getSugar());
+			foundCookie.setPrice(cookie.getPrice());
+		}
 		return foundCookie;
 	}
 

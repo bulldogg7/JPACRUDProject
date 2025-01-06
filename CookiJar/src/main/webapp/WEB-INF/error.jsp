@@ -76,46 +76,38 @@ footer {
 		<div class="row">
 			<div class="col-md-6 mx-auto">
 				<div class="card mt-4">
-					<div
+					<div>
 						<div class="card-body text-center bg-light">
-	<h1>Error</h1><hr>
-<button class="btn btn-primary" type="submit"
-		onclick="window.location.href='home.do'">
-		Return To Home <i class="bi bi-cookie"></i>
-	</button>
-		</div></div>
+							<h1>Error</h1>
+							<button class="btn btn-warning" type="button"
+								onclick="history.back()">
+								Go Back <i class="bi bi-cookie"></i>
+							</button>
+							<hr>
+							<button class="btn btn-primary" type="submit"
+								onclick="window.location.href='home.do'">
+								Return To Home <i class="bi bi-cookie"></i>
+							</button>
+						</div>
+					</div>
 				</div>
 			</div>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-7 mx-auto">
-						<div class="card mt-2">
-							<div class="card-body">
-								<footer>
-									<br> <a href="#" class="top">Go To Top <i
-										class="bi bi-cookie"></i></a> <br> <br>
-									<p>
-										<a href="http://www.SheehanThomson.com" target="blank">www.SheehanThomson.com</a>
+		</div>
+		<br> <br> <br> <br> <br> <br> <br>
+		<br> <br> <br> <br> <br> <br> <br>
+		<br> <br> <br> <br>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-7 mx-auto">
+					<div class="card mt-2">
+						<div class="card-body">
+							<footer>
+								<br> <a href="#" class="top">Go To Top <i
+									class="bi bi-cookie"></i></a> <br> <br>
+								<p>
+									<a href="http://www.SheehanThomson.com" target="blank">www.SheehanThomson.com</a>
 
-										<script type="text/javascript">
+									<script type="text/javascript">
 										var date = new Date(), year = date
 												.getFullYear(), text = "
 						All Rights
@@ -123,18 +115,18 @@ footer {
 												+ year + " - CookiJar", html='<div class="text-align-center">'+ text + '</div>
 					'; document.write(html);
 					</script>
-									</p>
-								</footer>
-							</div>
+								</p>
+							</footer>
 						</div>
 					</div>
 				</div>
 			</div>
-			<br>
 		</div>
-		<script
-			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-			crossorigin="anonymous"></script>
+		<br>
+	</div>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+		crossorigin="anonymous"></script>
 </body>
 </html>
