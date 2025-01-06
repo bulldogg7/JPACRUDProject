@@ -4,20 +4,21 @@ import java.util.List;
 
 import com.skilldistillery.jpacookie.entities.Cookie;
 
-
 public interface CookieDAO {
 
 	// CREATE
 	public Cookie createCookie(Cookie cookie);
 
 	// READ
-	public List<Cookie> readAllCookies();
 	public Cookie readCookieById(int cookieId);
-	public Cookie readCookiesByKeyword(String keyword);
-	
+	public List<Cookie> readAllCookies();
+	public List<Cookie> readCookiesByKeyword(String keyword);
+
 	// UPDATE
-	public Cookie updateCookie(int cookieId, Cookie cookie);
-	
+	public Cookie updateCookie(Cookie cookie, int cookieId);
+
 	// DELETE
-	public boolean deleteCookieById(int cookieId);	
+	public boolean deleteCookieById(int cookieId);
+
+	// GET IMAGE
 }
