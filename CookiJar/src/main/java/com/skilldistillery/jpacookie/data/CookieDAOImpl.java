@@ -49,20 +49,21 @@ public class CookieDAOImpl implements CookieDAO {
 	// UPDATE
 	@Override
 	public Cookie updateCookie(Cookie cookie, int cookieId) {
-		Cookie foundCookie = manager.find(Cookie.class, cookieId);
-		System.out.println(cookieId);
+		Cookie cookieUpdate = manager.find(Cookie.class, cookieId);
 		System.out.println(cookie);
-		if (foundCookie != null) {
-			foundCookie.setName(cookie.getName());
-			foundCookie.setBase(cookie.getBase());
-			foundCookie.setContents(cookie.getContents());
-			foundCookie.setFrosting(cookie.getFrosting());
-			foundCookie.setTopping(cookie.getTopping());
-			foundCookie.setCalories(cookie.getCalories());
-			foundCookie.setSugar(cookie.getSugar());
-			foundCookie.setPrice(cookie.getPrice());
+		System.out.println(cookieId);
+		if (cookie != null) {
+			cookieUpdate.setName(cookie.getName());
+			cookieUpdate.setBase(cookie.getBase());
+			cookieUpdate.setContents(cookie.getContents());
+			cookieUpdate.setFrosting(cookie.getFrosting());
+			cookieUpdate.setTopping(cookie.getTopping());
+			cookieUpdate.setCalories(cookie.getCalories());
+			cookieUpdate.setSugar(cookie.getSugar());
+			cookieUpdate.setPrice(cookie.getPrice());
+			manager.flush();
 		}
-		return foundCookie;
+		return cookieUpdate;
 	}
 
 	// DELETE

@@ -71,7 +71,7 @@ footer {
 
 	<div class="container sticky-top">
 		<div class="row">
-			<div class="col-md-12 mx-auto">
+			<div class="col-md-10 mx-auto">
 				<div class="card mt-4">
 					<div class="card-body">
 						<h1 style="text-align: center">Selected Cookie - ${c.id}</h1>
@@ -138,7 +138,8 @@ footer {
 						<img src="images/cooki-jar-logo.png" alt="Cooki Jar" />
 						<h1>Edit Cookie</h1>
 						<hr>
-						<form action="updateCookie.do?id=${c.id}" method="POST">
+						<form action="updateCookie.do?id=${c.id}" method="POST"
+							onsubmit="return window.confirm('Confirm Edits?');">
 							<h3>Cookie Name</h3>
 							<input type="text" name="name" value="${c.name}"
 								style="text-align: center" /> <br> <br>
